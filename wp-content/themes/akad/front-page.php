@@ -21,6 +21,7 @@ get_header(); ?>
 					get_template_part( 'template-parts/content', 'site-hero' );
 				}
 					get_template_part( 'template-parts/content', 'history-of-agency' );
+					get_template_part( 'template-parts/content', 'services' );
 
 			endwhile; // End of the loop.
 			?>
