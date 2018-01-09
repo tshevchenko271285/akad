@@ -14,21 +14,57 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
 
 			<?php
 			while ( have_posts() ) : the_post();
-
-				?>  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <?php
-				//get_template_part( 'template-parts/content', 'page' );
+				if(get_field('site_hero')) {
+					get_template_part( 'template-parts/content', 'site-hero' );
+				}
+					get_template_part( 'template-parts/content', 'history-of-agency' );
 
 			endwhile; // End of the loop.
 			?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+<script type="text/javascript" charset="utf-8">
+		$(window).load(function() {
+			new WOW().init();
 
+			// initialise flexslider
+			$('.site-hero').flexslider({
+				animation: "fade",
+				directionNav: false,
+				controlNav: false, 
+				keyboardNav: true,
+				slideToStart: 0,
+				animationLoop: true,
+				pauseOnHover: false,
+				slideshowSpeed: 4000, 
+			});
+
+
+			// initialize isotope
+			var $container = $('.portfolio_container');
+			$container.isotope({
+				filter: '*',
+			});
+		 
+			$('.portfolio_filter a').click(function(){
+				$('.portfolio_filter .active').removeClass('active');
+				$(this).addClass('active');
+		 
+				var selector = $(this).attr('data-filter');
+				$container.isotope({
+					filter: selector,
+					animationOptions: {
+						duration: 500,
+						animationEngine : "jquery"
+					}
+				});
+				return false;
+			}); 
+		});
+	</script>
 <?php
 //get_sidebar();
 get_footer();
+?>

@@ -26,7 +26,7 @@
 <header class="main-header">
 	<div class="container">
 		<div class="logo">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php the_custom_logo();?></a>
+			<?php the_custom_logo();?>
 		</div>
 
 		<div class="menu">

@@ -35,8 +35,8 @@ add_action( 'wp_head', 'akad_pingback_header' );
  * Register Item Menu Theme Setting
  * 	
  */
-
 register_setting( 'Theme Setting', $option_name, $args );
+
 /**
  * Require custom styles theme
  */
