@@ -32,6 +32,12 @@ function akad_pingback_header() {
 add_action( 'wp_head', 'akad_pingback_header' );
 
 /**
+ * Register Item Menu Theme Setting
+ * 	
+ */
+
+register_setting( 'Theme Setting', $option_name, $args );
+/**
  * Require custom styles theme
  */
 require get_template_directory() . '/inc/custom-styles.php';
@@ -42,6 +48,11 @@ require get_template_directory() . '/inc/custom-styles.php';
 require get_template_directory() . '/inc/custom-scripts.php';
 
 /**
- * Require custom Walker_Nav_Menu from main
+ * Require customs Walker_Nav_Menu classes
  */
-require get_template_directory() . '/inc/custom-main-menu.php';
+require get_template_directory() . '/inc/custom-menu.php';
+
+/**
+ * Require custom admin menu setting add item menu
+ */
+require get_template_directory() . '/inc/custom-admin-menu.php';

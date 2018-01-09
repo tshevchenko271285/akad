@@ -38,7 +38,7 @@
 					'menu_id'        => 'primary-menu',
 					'container'       => false,
 					'menu_class'      => 'first-level',
-					'walker'        => new akad_walker_nav_menu
+					'walker'        => new akad_header_walker_nav_menu
 				) );
 			?>
 			</nav>
