@@ -40,3 +40,8 @@ require get_template_directory() . '/inc/custom-styles.php';
  * Require custom scripts theme
  */
 require get_template_directory() . '/inc/custom-scripts.php';
+
+/**
+ * Require custom Walker_Nav_Menu from main
+ */
+require get_template_directory() . '/inc/custom-main-menu.php';
