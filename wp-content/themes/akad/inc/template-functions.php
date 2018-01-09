@@ -30,3 +30,13 @@ function akad_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'akad_pingback_header' );
+
+/**
+ * Require custom styles theme
+ */
+require get_template_directory() . '/inc/custom-styles.php';
+
+/**
+ * Require custom scripts theme
+ */
+require get_template_directory() . '/inc/custom-scripts.php';

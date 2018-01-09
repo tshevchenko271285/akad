@@ -116,7 +116,7 @@ add_action( 'widgets_init', 'akad_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function akad_scripts() {
+/*function akad_scripts() {
 	wp_enqueue_style( 'akad-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'akad-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -127,7 +127,7 @@ function akad_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'akad_scripts' );
+add_action( 'wp_enqueue_scripts', 'akad_scripts' );*/
 
 /**
  * Implement the Custom Header feature.
