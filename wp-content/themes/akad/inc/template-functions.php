@@ -56,3 +56,8 @@ require get_template_directory() . '/inc/custom-menu.php';
  * Require custom admin menu setting add item menu
  */
 require get_template_directory() . '/inc/custom-admin-menu.php';
+
+/**
+ * Require Customize Image Sizes
+ */
+require get_template_directory() . '/inc/custom-image-sizes.php';

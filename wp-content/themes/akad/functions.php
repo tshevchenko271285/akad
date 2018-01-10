@@ -46,6 +46,7 @@ if ( ! function_exists( 'akad_setup' ) ) :
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Header', 'akad' ),
 			'menu-2' => esc_html__( 'Footer', 'akad' ),
+			'menu-3' => esc_html__( 'Portfolio Categories', 'akad' ),
 		) );
 
 		/*

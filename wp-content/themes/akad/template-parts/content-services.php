@@ -24,8 +24,14 @@ $image = wp_get_attachment_image( $services['image'], array(470, 500) );
 
 		<div class="col-md-7 col-sm-12 services-left wow fadeInUp">
 			<div class="row" style="margin-bottom:50px">
-			<?php if (is_array($services['service'])): ?>
-			<?php foreach( $services['service'] as $service ) { ?>
+			<?php 
+				if (is_array($services['service'])):
+				//shuffle($services['service']);
+				$repeater = 0;
+				foreach( $services['service'] as $service ) { 
+					$repeater++;
+					if( $repeater > 4 ) break;
+			?>
 				<div class="col-md-6 col-sm-12">
 					<div class="row">
 						<i class="icon <?php echo $service['icon'] ?>"></i>

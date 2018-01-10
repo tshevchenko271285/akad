@@ -17,11 +17,19 @@ get_header(); ?>
 
 			<?php
 			while ( have_posts() ) : the_post();
+
 				if(get_field('site_hero')) {
 					get_template_part( 'template-parts/content', 'site-hero' );
 				}
-					get_template_part( 'template-parts/content', 'history-of-agency' );
+
+				get_template_part( 'template-parts/content', 'history-of-agency' );
+				
+				if(get_field('services')) {
 					get_template_part( 'template-parts/content', 'services' );
+				}
+				if( get_field('portfolio_list') ) {
+					get_template_part( 'template-parts/content', 'portfolio' );
+				}
 
 			endwhile; // End of the loop.
 			?>
