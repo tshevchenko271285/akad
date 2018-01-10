@@ -61,3 +61,8 @@ require get_template_directory() . '/inc/custom-admin-menu.php';
  * Require Customize Image Sizes
  */
 require get_template_directory() . '/inc/custom-image-sizes.php';
+
+/**
+ * Require Customize Newsletters form
+ */
+require get_template_directory() . '/inc/custom-newslerrer-from.php';

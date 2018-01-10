@@ -31,6 +31,8 @@ get_header(); ?>
 					get_template_part( 'template-parts/content', 'portfolio' );
 				}
 
+				get_template_part( 'template-parts/content', 'newsletter' );
+
 			endwhile; // End of the loop.
 			?>
 
