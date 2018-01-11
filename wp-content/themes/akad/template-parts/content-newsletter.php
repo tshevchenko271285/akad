@@ -7,7 +7,6 @@
  * @package akad
  */
 $newsletter_form = cost_es_cls_widget::load_subscription( ['es_name' => "NO", 'es_desc' => "", 'es_group' => "" ]);
-$newsletter_texts = get_field('newsletter')[0];
 ?>
 <!-- newsletter -->
 <section class="green-section wow fadeInUp" style="padding:50px 0">
@@ -15,18 +14,19 @@ $newsletter_texts = get_field('newsletter')[0];
 		<div class="col-md-6 col-sm-12">
 			<div class="row">
 				<span class="white-text montserrat-text uppercase" style="font-size:30px;display:block;">
-					<?php echo $newsletter_texts['left_title']; ?>
+					<?php the_field('left_title', 'option'); ?>
 				</span>
-				<a href="#" class="btn white" style="margin-top:30px"><span><?php echo $newsletter_texts['left_button_text']; ?></span></a>
+				<a href="<?php the_field('left_button_link', 'option'); ?>" class="btn white" style="margin-top:30px"><span><?php the_field('left_button_text', 'option'); ?></span></a>
 			</div>
 		</div>
-
 		<div class="col-md-6 col-sm-12">
 			<div class="row">
 				<div class="white-section" style="padding:20px">
-					<span class="montserrat-text uppercase" style="font-size:24px"><?php echo $newsletter_texts['newsletter_title']; ?></span>
+					<span class="montserrat-text uppercase" style="font-size:24px">
+						<?php the_field('newsletter_title', 'option'); ?>
+					</span>
 					<p>
-						<?php echo $newsletter_texts['newsletter_text']; ?>
+						<?php the_field('newsletter_text', 'option'); ?>
 					</p>
 					<?php echo $newsletter_form; ?>
 				</div>

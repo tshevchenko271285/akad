@@ -13,8 +13,8 @@ $portfolio_list = get_field('portfolio_list')[0];
 	<div class="container">
 		<div class="row">
 			<div class="section-title">
-				<span><?php echo $portfolio_list['title']; ?></span>
-				<p><?php echo $portfolio_list['description']; ?></p>
+				<?php echo $portfolio_list['title'] ? '<span>'.$portfolio_list['title'].'</span>' : ''; ?>
+				<?php echo $portfolio_list['title'] ? '<p>'.$portfolio_list['description'].'</p>' : ''; ?>
 			</div>
 		</div>
 		<!-- categories  -->

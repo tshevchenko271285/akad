@@ -28,7 +28,7 @@ get_header(); ?>
 					get_template_part( 'template-parts/content', 'services' );
 				}
 				if( get_field('portfolio_list') ) {
-					get_template_part( 'template-parts/content', 'portfolio' );
+					get_template_part( 'template-parts/content', 'portfolio-block' );
 				}
 
 				get_template_part( 'template-parts/content', 'newsletter' );
