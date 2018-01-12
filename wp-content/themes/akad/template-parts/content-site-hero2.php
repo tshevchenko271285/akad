@@ -17,7 +17,7 @@ $banner_image = get_field('banner_image', 'option') ? ' style="background-image:
 	<div class="page-title">
 		<div class="big-title montserrat-text uppercase"><?php the_title(); ?></div>
 		<div class="small-title montserrat-text uppercase">
-			<?php if( function_exists('breadcrumbs') ) echo breadcrumbs(); ?>
+			<?php if( function_exists('breadcrumbs') ) echo urldecode( breadcrumbs() ); ?>
 		</div>
 	</div>
 </div>

@@ -18,7 +18,7 @@ $posts_field = get_field('two_columns');
 	</div>
 	<?php the_content(); ?>
 
-	<?php if ( isset( $posts_field ) ): ?>
+	<?php if ( !empty( $posts_field ) ): ?>
 
 		<?php foreach ( $posts_field as $row ): ?>
 			

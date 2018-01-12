@@ -66,13 +66,14 @@ class Akad_Widget_Tag_Cloud extends WP_Widget {
 		 * @param array $args     Args used for the tag cloud widget.
 		 * @param array $instance Array of settings for the current widget.
 		 */
-		$tag_cloud = wp_tag_cloud( apply_filters( 'widget_tag_cloud_args', array(
+		$tag_clouds = wp_tag_cloud( apply_filters( 'widget_tag_cloud_args', array(
 			'taxonomy'   => $current_taxonomy,
 			'echo'       => false,
 			'show_count' => $show_count,
+			'format'	 => 'array'
 		), $instance ) );
 
-		if ( empty( $tag_cloud ) ) {
+		if ( empty( $tag_clouds ) ) {
 			return;
 		}
 
@@ -83,15 +84,12 @@ class Akad_Widget_Tag_Cloud extends WP_Widget {
 		if ( $title ) {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
-
-		echo '<ul class="tags">
-						';
-
-		echo '<li>' . $tag_cloud . '</li>';
-
+		echo '<ul class="tags">';
+		foreach ($tag_clouds as $tag_cloud) {
+			echo '<li>' . $tag_cloud . '</li>';
+		}
 		echo "</ul>\n";
 		echo $args['after_widget'];
-
 	}
 
 	/**
