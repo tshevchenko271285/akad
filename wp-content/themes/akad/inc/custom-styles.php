@@ -4,8 +4,6 @@
  */
 function akad_styles() {
 
-	wp_enqueue_style( 'akad-style', get_stylesheet_uri() );
-
 	wp_enqueue_style( 'akad-bootstrap-style', get_template_directory_uri() . '/layouts/bootstrap.min.css' );
 	wp_enqueue_style( 'akad-ionicons-style', get_template_directory_uri() . '/layouts/ionicons.min.css' );
 	wp_enqueue_style( 'akad-flexslider-style', get_template_directory_uri() . '/layouts/flexslider.css' );
@@ -13,6 +11,7 @@ function akad_styles() {
 	wp_enqueue_style( 'akad-animate-style', get_template_directory_uri() . '/layouts/animate.css' );
 	wp_enqueue_style( 'akad-style-style', get_template_directory_uri() . '/layouts/style.css' );
 
+	wp_enqueue_style( 'akad-style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'akad_styles' );
 

@@ -19,3 +19,13 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
+/*blockquote*/
+.single_post blockquote {
+	padding: 30px;
+	border-left: solid 10px #7beec7;
+	font-style: italic;
+	font-size: 14px;
+	line-height: 30px;
+	color:#999999;
+	background-color: #efeff0;
+}
