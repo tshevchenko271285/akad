@@ -107,9 +107,9 @@ function akad_widgets_init() {
 		'name'          => esc_html__( 'Sidebar', 'akad' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'akad' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget_title">',
 		'after_title'   => '</h2>',
 	) );
 }

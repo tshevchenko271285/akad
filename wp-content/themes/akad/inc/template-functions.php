@@ -51,7 +51,6 @@ require get_template_directory() . '/inc/custom-admin-menu.php';
  */
 require get_template_directory() . '/inc/custom-menu.php';
 
-
 /**
  * Require Customize Image Sizes
  */
@@ -66,3 +65,16 @@ require get_template_directory() . '/inc/custom-newslerrer-from.php';
  * Require My Custom Functions
  */
 require get_template_directory() . '/inc/custom-functions.php';
+
+/**
+ * Require My Custom Widgets
+ */
+if( is_file(get_template_directory() . '/inc/widget/akad-category-widget.php') )
+	require get_template_directory() . '/inc/widget/akad-category-widget.php';
+
+if( is_file(get_template_directory() . '/inc/widget/akad-tags-cloud-widget.php') )
+	require get_template_directory() . '/inc/widget/akad-tags-cloud-widget.php';
+
+if( is_file(get_template_directory() . '/inc/widget/akad-archives-widget.php') )
+	require get_template_directory() . '/inc/widget/akad-archives-widget.php';
+

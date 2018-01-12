@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-03-06 03:54+0500\n"
+"PO-Revision-Date: 2016-03-06 03:54+0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: class.Kama_Postviews.php:167
+msgid "Views"
+msgstr "Просмотров"
+
+#: class.Kama_Postviews.php:186
+msgid "Settings"
+msgstr "Настройки"
+
+#: class.Kama_Postviews.php:220
+msgid "Whose visit count?"
+msgstr "Чьи посещения считать?"
+
+#: class.Kama_Postviews.php:223
+msgid "Delay in seconds"
+msgstr "Задержка в секундах"
+
+#: class.Kama_Postviews.php:223
+msgid "How many seconds to delay and then count visit?"
+msgstr "Через сколько секунд засчитать визит?"
+
+#: class.Kama_Postviews.php:235
+msgid "All"
+msgstr "Всех"
+
+#: class.Kama_Postviews.php:235
+msgid "Only not logged users"
+msgstr "Только не авторизованных"
+
+#: class.Kama_Postviews.php:235
+msgid "Only logged users"
+msgstr "Только авторизованных"
+
+#: class.Kama_Postviews.php:235
+msgid "All, except administrators"
+msgstr "Всех, кроме админов"
+
+#: kama-postviews.php:2
+msgid ""
+"Counts visits of post or tax term. Works fast with caching plugins like WP "
+"Super Cache. To print views count use one of function: <code>&lt;?php "
+"kap_views() ?&gt;</code> or <code>&lt;?php fresh_kap_views() ?&gt;</code> "
+"where you need fresh views (when page cache plugin enabled)"
+msgstr ""
+"Считает посещения страниц и элементво таксономии. Работает с плагинами "
+"страничного кэширования: WP Super Cache. Для вывода количества просмотров, "
+"используйте <code>&lt;?php kap_views() ?&gt;</code>, а где нужно обновлять "
+"просмотры через AJAX, например на отдельной странице, используйте: "
+"<code>&lt;?php fresh_kap_views() ?&gt;</code>"
