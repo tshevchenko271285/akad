@@ -7,6 +7,8 @@
  * @package akad
  */
 $portfolio_list = get_field('portfolio_list')[0];
+if( empty($portfolio_list) ) 
+	return;
 ?>
 <!-- PORTFOLIO -->
 <section class="portfolio">
@@ -48,7 +50,9 @@ $portfolio_list = get_field('portfolio_list')[0];
 				];
 				$query = new WP_Query($args);
 				if( $query->have_posts() ){
+					//$delay_wow = 1;
 					while( $query->have_posts() ){ $query->the_post();
+						$delay_wow = rand ( 1, 9 );
 						$cats = wp_get_object_terms( get_the_id(), 'portfolio_category' );
 						$class = '';
 						$cat_str = '';
@@ -59,13 +63,13 @@ $portfolio_list = get_field('portfolio_list')[0];
 					?>
 					<!-- single work -->
 					<div class="col-md-4 <?php echo $class;?> ">
-						<a href="<?php the_permalink(); ?>" class="portfolio_item work-grid wow fadeInUp">
+						<a href="<?php the_permalink(); ?>" class="portfolio_item work-grid wow fadeInUp" data-wow-delay=".<?php echo $delay_wow; ?>s">
 							<?php the_post_thumbnail( 'thumbnail-portfolio', array('srcset' => ' ') ); ?>
 							<div class="portfolio_item_hover">
 								<div class="item_info">
 									<span><?php the_title(); ?></span>
 									<em>
-									<?php echo $cat_str; ?>
+										<?php echo $cat_str; ?>
 									</em>
 								</div>
 							</div>

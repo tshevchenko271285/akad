@@ -1,17 +1,19 @@
 <?php
-/*
-Template Name: Portfolio
-*/
 get_header(); 
-while ( have_posts() ) : the_post();
-	get_template_part( 'template-parts/content', 'site-hero2' );
-	if( get_field('portfolio_list') ) {
-		get_template_part( 'template-parts/content', 'portfolio-block' );
+get_template_part( 'template-parts/content', 'site-hero2' );
+
+$query = new WP_Query('pagename=portfolio');
+if( $query->have_posts() ){
+	while( $query->have_posts() ){ $query->the_post();
+		if( get_field('portfolio_list') ) {
+			get_template_part( 'template-parts/content', 'portfolio-block' );
+		}
 	}
+	wp_reset_postdata(); // сбрасываем переменную $post
+} 
+else echo 'Записей нет.';
 
-	get_template_part( 'template-parts/content', 'newsletter' );
-
-endwhile; // End of the loop.
+get_template_part( 'template-parts/content', 'newsletter' );
 ?>
 <script type="text/javascript" charset="utf-8">
 		$(window).load(function() {

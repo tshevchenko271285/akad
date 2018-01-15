@@ -64,7 +64,8 @@ require get_template_directory() . '/inc/custom-newslerrer-from.php';
 /**
  * Require My Custom Functions
  */
-require get_template_directory() . '/inc/custom-functions.php';
+if( is_file(get_template_directory() . '/inc/custom-akad-functions.php') )
+	require get_template_directory() . '/inc/custom-akad-functions.php';
 
 /**
  * Require My Custom Widgets
@@ -77,4 +78,10 @@ if( is_file(get_template_directory() . '/inc/widget/akad-tags-cloud-widget.php')
 
 if( is_file(get_template_directory() . '/inc/widget/akad-archives-widget.php') )
 	require get_template_directory() . '/inc/widget/akad-archives-widget.php';
+
+if( is_file(get_template_directory() . '/inc/widget/akad-instagram-widget.php') )
+	require get_template_directory() . '/inc/widget/akad-instagram-widget.php';
+
+if( is_file(get_template_directory() . '/inc/widget/akad-popular-widget.php') )
+	require get_template_directory() . '/inc/widget/akad-popular-widget.php';
 

@@ -14,7 +14,7 @@ $posts_field = get_field('two_columns');
 	</div>
 	<div class="post_title">
 		<h4 class="montserrat-text uppercase"><?php the_title(); ?></h4>
-		<span class="post_date">Date : <?php echo get_the_date( 'Y-n-d' ); ?></span>
+		<span class="post_date">Date : <?php the_date( 'Y-n-d' ); ?></span>
 	</div>
 	<?php the_content(); ?>
 
@@ -36,5 +36,18 @@ $posts_field = get_field('two_columns');
 		<?php endforeach ?>
 
 	<?php endif ?>
+<?php 
+	$comments_args = array(
+			// изменим название кнопки
+			'label_submit' => 'Отправить',
+			// заголовок секции ответа
+			'title_reply'=>'Write a Reply or Comment',
+			// удалим текст, который будет показано после того как коммент отправлен
+			'comment_notes_after' => '',
+			// переопределим textarea (тело формы)
+			'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><br /><textarea id="comment" name="comment" aria-required="true"></textarea></p>',
+	);
 
+	comment_form( $comments_args );
+?>
 </div>

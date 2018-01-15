@@ -23,27 +23,15 @@ while ( have_posts() ) : the_post();
 				
 				<div class="col-md-3"> <!-- start sidebar -->
 					<div class="sidebar">
-						<?php kama_get_most_viewed($args='') ?>
 						<?php get_sidebar(); ?>
-
-
 					</div>
 				</div> <!-- end sidebar -->
 
 			</div><!-- end row -->
 		</div><!-- end container -->
 	</section>
-
 	<?php get_template_part( 'template-parts/content', 'newsletter' ); ?>
-<?php
-			
-
-
-
-
-		endwhile; // End of the loop.
-		?>
 
 <?php
-//get_sidebar();
+endwhile; // End of the loop.
 get_footer();

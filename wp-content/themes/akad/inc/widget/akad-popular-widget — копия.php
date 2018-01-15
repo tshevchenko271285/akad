@@ -1,25 +1,4 @@
-<?php
-function breadcrumbs($separator = ' / ', $home = 'Home') {
-	$path = array_filter( explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ) );
-	//$base_url = ($_SERVER['HTTPS'] ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
-	$base_url = get_site_url() . '/';
-	$breadcrumbs = array("<a href=\"$base_url\">$home</a>");
-	$keys = array_keys($path);
-	$last = end( $keys );
-	//$last = end( array_keys($path) );
-	//$last = array_pop( array_keys($path) );
-
-	foreach( $path as $x => $crumb ){
-		$title = ucwords(str_replace(array('.php', '_', '-'), Array('', ' ', ' '), $crumb));
-		if( $x != $last ){
-			$breadcrumbs[] = '<a href="'.$base_url.$crumb.'">'.$title.'</a>';
-		}
-		else {
-			$breadcrumbs[] = $title;
-		}
-	}
-	return implode( $separator, $breadcrumbs );
-}
+<?php 
 
 /* Подсчет количества посещений страниц
 ---------------------------------------------------------- */
@@ -78,13 +57,15 @@ echo (1) - выводить на экран или нет. Варианты 1 - 
 */
 function kama_get_most_viewed($args=''){
 	parse_str($args, $i);
-	$num    = isset($i['num']) ? $i['num']:10;
+	$num    = isset($i['num']) ? $i['num']:3;
 	$key    = isset($i['key']) ? $i['key']:'views';
 	$order  = isset($i['order']) ? 'ASC':'DESC';
 	$cache  = isset($i['cache']) ? 1:0;
 	$days   = isset($i['days']) ? (int)$i['days']:0;
 	$echo   = isset($i['echo']) ? 0:1;
 	$format = isset($i['format']) ? stripslashes($i['format']):0;
+	$AND_days = '';
+	$x = '';
 	global $wpdb,$post;
 	$cur_postID = $post->ID;
 
@@ -110,8 +91,9 @@ function kama_get_most_viewed($args=''){
 	$results = $wpdb->get_results($sql);
 	if( !$results ) return false;
 
-	$out= '';
+	$out= '<div class="widget">';
 	preg_match( '!{date:(.*?)}!', $format, $date_m );
+
 	foreach( $results as $pst ){
 		$x == 'li1' ? $x = 'li2' : $x = 'li1';
 		if ( (int)$pst->ID == (int)$cur_postID ) $x .= " current-item";
@@ -129,14 +111,15 @@ function kama_get_most_viewed($args=''){
 			$Sformat = str_replace(array('{a}','{title}','{/a}','{comments}','{views}'), array($a1,$Title,$a2,$comments,$views), $Sformat);
 		}
 		else $Sformat = $a1.$Title.$a2;
-		$out .= '<div class="widget"><div class="' . $x . ' related_post">
+		$out .= '<div class="' . $x . ' related_post">
 					<div class="thumb">
 						<img src="' . $image_url . '"" alt="image">
 					</div>
 					<a href="' . get_permalink($pst->ID) . '" class="post_title montserrat-text uppercase">' . $Title . '</a>
 					<div class="post_date">' . $date . '</div>
-				</div></div>';
+				</div>';
 	}
+	$out .= '</div>';
 
 	if( $cache ) wp_cache_add($cache_key, $out);
 
