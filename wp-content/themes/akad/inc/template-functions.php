@@ -85,3 +85,8 @@ if( is_file(get_template_directory() . '/inc/widget/akad-instagram-widget.php') 
 if( is_file(get_template_directory() . '/inc/widget/akad-popular-widget.php') )
 	require get_template_directory() . '/inc/widget/akad-popular-widget.php';
 
+/**
+ * Require function AJAX Loading Portfolio
+ */
+if( is_file(get_template_directory() . '/inc/custom-ajax-loading-portfolio.php') )
+	require get_template_directory() . '/inc/custom-ajax-loading-portfolio.php';

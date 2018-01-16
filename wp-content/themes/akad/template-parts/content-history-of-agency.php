@@ -8,7 +8,8 @@
  */
 
 $attr = array(
-			'post_type' => 'history_of_agency',
+			'post_type' => 'post',
+			'orderby' => 'rand',
 			'posts_per_page'=>1, 
 			);
 $query = new WP_Query($attr); 
@@ -32,7 +33,7 @@ if( $query->have_posts() ){
 					<div class="section-title">
 						<span><?php the_title(); ?></span>
 					</div>
-					<p><?php the_excerpt(); ?></p>
+					<p><?php echo wp_trim_words(get_the_content(), 55, ''); ?></p>
 					<a href="<?php the_permalink(); ?>" class="btn green" style="float:right;margin-top:30px"><span>read more</span></a>
 				</div>
 			</div>

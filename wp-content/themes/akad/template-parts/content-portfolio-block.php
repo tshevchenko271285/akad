@@ -25,17 +25,19 @@ if( empty($portfolio_list) )
 				<span class="montserrat-text uppercase"><?php echo $portfolio_list['menu_title']; ?></span>
 				<nav class="categories">
 					<ul class="portfolio_filter">
+						<li><a href="" class="active" data-filter="*">all</a></li>
 						<?php 
 							$args = array(
 								'taxonomy' => 'portfolio_category',
 								'hide_empty' => false,
 							);
 							$terms = get_terms( $args );
-						?>
-						<li><a href="" class="active" data-filter="*">all</a></li>
-						<?php foreach ($terms as $term): ?>
-							<li><a href="" data-filter=".<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></li>
+							foreach ($terms as $term): ?>
+
+							<li><a href="" data-filter=".<?php echo $term->slug; ?>" data-category="<?php echo $term->term_taxonomy_id; ?>"><?php echo $term->name; ?></a></li>
+							
 						<?php endforeach ?>
+
 					</ul>
 				</nav>
 			</div>
@@ -52,31 +54,9 @@ if( empty($portfolio_list) )
 				if( $query->have_posts() ){
 					//$delay_wow = 1;
 					while( $query->have_posts() ){ $query->the_post();
-						$delay_wow = rand ( 1, 9 );
-						$cats = wp_get_object_terms( get_the_id(), 'portfolio_category' );
-						$class = '';
-						$cat_str = '';
-						foreach ($cats as $cat) {
-							$class .= $cat->slug . " ";
-							$cat_str .= $cat->name . " ";
-						}
-					?>
-					<!-- single work -->
-					<div class="col-md-4 <?php echo $class;?> ">
-						<a href="<?php the_permalink(); ?>" class="portfolio_item work-grid wow fadeInUp" data-wow-delay=".<?php echo $delay_wow; ?>s">
-							<?php the_post_thumbnail( 'thumbnail-portfolio', array('srcset' => ' ') ); ?>
-							<div class="portfolio_item_hover">
-								<div class="item_info">
-									<span><?php the_title(); ?></span>
-									<em>
-										<?php echo $cat_str; ?>
-									</em>
-								</div>
-							</div>
-						</a>
-					</div>
-					<!-- end single work -->
-					<?php
+					
+						get_template_part( 'template-parts/content', 'portfolio-single-work' );
+						
 					}
 					wp_reset_postdata(); // сбрасываем переменную $post
 				} 

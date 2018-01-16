@@ -118,5 +118,61 @@
 			}
 		});
 
+		if($('.portfolio_container').length) {
+			// initialize isotope
+			var $container = $('.portfolio_container');
+			$container.isotope({
+				filter: '*',
+			});
+			$('.portfolio_filter a').click(function(){
+				$('.portfolio_filter .active').removeClass('active');
+				$(this).addClass('active');
+
+				var selector = $(this).attr('data-filter');
+		 		var category_id = $(this).attr('data-category');
+				var excludeId = getPortfoliosId();
+				
+				get_portfolio(category_id, excludeId);
+
+				$container.isotope({
+					filter: selector,
+					animationOptions: {
+						duration: 500,
+						animationEngine : "jquery"
+					}
+				});
+				return false;
+			}); 
+		}
+
+		function getPortfoliosId(){
+			items = $('.portfolio_container').find('[data-portfolio-id]');
+			cats = [];
+			$(items).each(function(index){
+				id = $(items[index]).attr('data-portfolio-id');
+				cats.push(id);
+			});
+			return cats;
+		}
+
+		function get_portfolio(category_id = false, excludeId) {
+			if (!category_id) return;
+			$.ajax({
+				url : akadCustom.ajaxurl + '/wp-admin/admin-ajax.php',
+				data : {
+					'action' : 'loading_portfolio',
+					'category' : category_id,
+					'exclude' : excludeId,
+				},
+				method : 'POST'
+			})
+			.done(function(data){
+				var $items = $(data);
+				$('.portfolio_container').append( $items )
+				.isotope( 'appended', $items );
+			});
+		}
+
 	});
+
 })(jQuery);
