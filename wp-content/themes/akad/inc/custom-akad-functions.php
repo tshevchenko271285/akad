@@ -2,13 +2,10 @@
 
 function breadcrumbs($separator = ' / ', $home = 'Home') {
 	$path = array_filter( explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ) );
-	//$base_url = ($_SERVER['HTTPS'] ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
 	$base_url = get_site_url() . '/';
 	$breadcrumbs = array("<a href=\"$base_url\">$home</a>");
 	$keys = array_keys($path);
 	$last = end( $keys );
-	//$last = end( array_keys($path) );
-	//$last = array_pop( array_keys($path) );
 
 	foreach( $path as $x => $crumb ){
 		$title = ucwords(str_replace(array('.php', '_', '-'), Array('', ' ', ' '), $crumb));
@@ -29,8 +26,8 @@ function kama_postviews() {
 
 /* ------------ Настройки -------------- */
 $meta_key       = 'views';  // Ключ мета поля, куда будет записываться количество просмотров.
-$who_count      = 0;            // Чьи посещения считать? 0 - Всех. 1 - Только гостей. 2 - Только зарегистрированных пользователей.
-$exclude_bots   = 1;            // Исключить ботов, роботов, пауков и прочую нечесть :)? 0 - нет, пусть тоже считаются. 1 - да, исключить из подсчета.
+$who_count      = 0; // Чьи посещения считать? 0 - Всех. 1 - Только гостей. 2 - Только зарегистрированных пользователей.
+$exclude_bots   = 1; // Исключить ботов, роботов, пауков и прочую нечесть :)? 0 - нет, пусть тоже считаются. 1 - да, исключить из подсчета.
 
 global $user_ID, $post;
 	if(is_singular()) {

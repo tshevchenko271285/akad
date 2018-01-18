@@ -20,7 +20,7 @@
 // var_dump( is_front_page() );
 // var_dump( is_embed() );
 // var_dump( is_attachment() );
-$banner_image = get_field('banner_image', 'option') ? ' style="background-image: url(' . get_field('banner_image', 'option') . ')" ' : '';
+$banner_image = get_field('banner_image', 'option') ? ' style="background-image: url( ' . wp_get_attachment_url( get_field('banner_image', 'option') ) . ' )" ' : '';
 $title = '';
 
 if( is_category() ) {

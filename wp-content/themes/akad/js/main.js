@@ -173,6 +173,15 @@
 			});
 		}
 
+		if( $(".testimonials") ) {
+			new WOW().init();
+			$(".testimonials").flexslider({
+				directionNav : false,
+				controlNav : false,
+				smoothHeight : true,
+			});
+		}
+
 	});
 
-})(jQuery);
+})(jQuery); 
