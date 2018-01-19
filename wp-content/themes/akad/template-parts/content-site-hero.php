@@ -10,14 +10,15 @@
 /**
  *	Prepare data for Heroes
  */
-$heroes = get_field('site_hero')[0];
+$image = get_sub_field('background') ? ' style="background-image: url( ' . get_sub_field('background') . ' )" ' : '';
+$slider = get_sub_field('slider') ? get_sub_field('slider') : false;
 ?>
 <!-- HERO SECTION  -->
-<div <?php echo $heroes['background'] ? 'style="backgound-image: url('. $heroes['background'] .')"' : ''; ?>
+<div <?php echo $image; ?>
 	 class="site-hero">
-	 <?php if( is_array($heroes['slider']) ) :?>
+	 <?php if( is_array($slider) ) :?>
 		<ul class="slides">
-			<?php foreach($heroes['slider'] as $slide) { ?>
+			<?php foreach($slider as $slide) { ?>
 			<li>
 				<div><span class="small-title uppercase montserrat-text"><?php echo $slide['slug'] ?></span></div>
 				<div class="big-title uppercase montserrat-text"><?php echo $slide['title'] ?></div>

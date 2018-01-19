@@ -29,3 +29,84 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	color:#999999;
 	background-color: #efeff0;
 }
+
+/* ##### 05 : INPUTS & TEXTAREAS STYLES  ##### */
+/*textarea 1*/
+.textarea_1{
+	height: 200px;
+	width: 100%;
+	border:solid 1px rgba(0,0,0,.1);
+	position: relative;
+}
+.textarea_1 > span > textarea {
+	height: 100%;
+	width: 100%;
+	border:0;
+	padding: 20px;
+	background-color: transparent;
+	float: left;
+	z-index: 2;
+	font-family: "Montserrat", sans-serif;
+	font-size: 14px;
+	color:#9a9a9a;
+}
+.textarea_1 > .label {
+	position: absolute;
+	top:20px;
+	left: 20px;
+	-webkit-transform:translateY(-50%);
+	    -ms-transform:translateY(-50%);
+	        transform:translateY(-50%);
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	text-transform: uppercase;
+	color:#cdcdcd;
+	-webkit-transition:all .2s ease-in-out;
+	transition:all .2s ease-in-out;
+	z-index: 1;
+}
+/*input 1*/
+.input_1{
+	height: 50px;
+	width: 100%;
+	border:solid 1px rgba(0,0,0,.1);
+	position: relative;
+}
+.input_1 > span > input{
+	height: 100%;
+	width: 100%;
+	border:0;
+	padding: 0 20px;
+	float: left;
+	position: relative;
+	background-color: transparent;
+	z-index: 2;
+	font-family: "Montserrat", sans-serif;
+	font-size: 14px;
+	color:#9a9a9a;
+}
+.input_1 > .label{
+	position: absolute;
+	top:50%;
+	left: 20px;
+	-webkit-transform:translateY(-50%);
+	    -ms-transform:translateY(-50%);
+	        transform:translateY(-50%);
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	text-transform: uppercase;
+	color:#cdcdcd;
+	-webkit-transition:all .2s ease-in-out;
+	transition:all .2s ease-in-out;
+	z-index: 1;
+}
+.input_1 > .label.active,.textarea_1 > .label.active{
+	color:#7beec7;
+	font-size: 10px;
+	top:0px;
+	left: 5px;
+	background-color: #fff;
+	padding: 5px
+}

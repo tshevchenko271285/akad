@@ -1,27 +1,22 @@
 <?php
-
 get_header(); 
+while ( have_posts() ) : the_post();
 
-get_template_part( 'template-parts/content', 'site-hero2' );
+        // check if the flexible content field has rows of data
+        if( have_rows('page') ):
 
-$query = new WP_Query('pagename=portfolio');
-if( $query->have_posts() ){
+             // loop through the rows of data
+            while ( have_rows('page') ) : the_row();
 
-	while( $query->have_posts() ){ $query->the_post();
+				akad_route( get_row_layout() );
 
-		if( get_field('portfolio_list') ) {
-			get_template_part( 'template-parts/content', 'portfolio-block' );
-		}
-		
-	}
-	wp_reset_postdata(); 
+            endwhile;
 
-} 
+        else :
 
-else echo 'Записей нет.';
+            // no layouts found
 
-get_template_part( 'template-parts/content', 'newsletter' );
-
+        endif;
+endwhile; // End of the loop.
 get_footer();
-
 ?>

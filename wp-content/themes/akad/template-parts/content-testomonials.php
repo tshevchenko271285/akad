@@ -1,7 +1,6 @@
 <?php 
 	$data['title'] = get_sub_field('title') ? get_sub_field('title') : '';
 	$data['desc'] = get_sub_field('desc') ? get_sub_field('desc') : '';
-	$data['desc'] = get_sub_field('desc') ? get_sub_field('desc') : '';
 	$data['gallery'] = get_sub_field('gallery') ? get_sub_field('gallery') : false;
 	$data['max_slides'] = get_sub_field('max_slides') ? get_sub_field('max_slides') : 3;
 	$data['post_type'] = 'testimonials';

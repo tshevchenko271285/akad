@@ -10,17 +10,7 @@
 /**
  *	Prepare data
  */
-
-// var_dump( is_archive() );
-// var_dump( is_category() );
-// var_dump( is_page() );
-// var_dump( is_single() );
-// var_dump( is_singular() );
-// var_dump( is_preview() );
-// var_dump( is_front_page() );
-// var_dump( is_embed() );
-// var_dump( is_attachment() );
-$banner_image = get_field('banner_image', 'option') ? ' style="background-image: url( ' . wp_get_attachment_url( get_field('banner_image', 'option') ) . ' )" ' : '';
+$banner_image = get_sub_field('banner_image') ? ' style="background-image: url( ' . wp_get_attachment_url( get_sub_field('banner_image') ) . ' )" ' : '';
 $title = '';
 
 if( is_category() ) {

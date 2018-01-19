@@ -25,7 +25,7 @@ class cost_es_cls_widget extends es_cls_widget{
 			$es .= '</div>';
 		}
 		$es .= '<div class="input_1">';
-			$es .= '<input type="text" id="es_txt_email_pg" class="" name="es_txt_email_pg" onkeypress="if(event.keyCode==13) es_submit_pages(event, '.$url.')" value="" placeholder="" maxlength="225"><span>your email</span>';
+			$es .= '<span><input type="text" id="es_txt_email_pg" class="" name="es_txt_email_pg" onkeypress="if(event.keyCode==13) es_submit_pages(event, '.$url.')" value="" placeholder="" maxlength="225"></span><span class="label">your email</span>';
 		$es .= '</div>';
 			$es .= '<input type="button" id="es_txt_button_pg" class="btn green" name="es_txt_button_pg" onClick="return es_submit_pages(event, '.$url.')" value="'.__( 'SEND', ES_TDOMAIN ).'" style="margin-top:20px">';
 

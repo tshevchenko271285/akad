@@ -90,3 +90,9 @@ if( is_file(get_template_directory() . '/inc/widget/akad-popular-widget.php') )
  */
 if( is_file(get_template_directory() . '/inc/custom-ajax-loading-portfolio.php') )
 	require get_template_directory() . '/inc/custom-ajax-loading-portfolio.php';
+
+/**
+ * Require function Routing for Flexible custom fields
+ */
+if( is_file(get_template_directory() . '/inc/custom-akad-route.php') )
+	require get_template_directory() . '/inc/custom-akad-route.php';

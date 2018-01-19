@@ -6,23 +6,36 @@
  *
  * @package akad
  */
-$portfolio_list = get_field('portfolio_list')[0];
-if( empty($portfolio_list) ) 
-	return;
+$portfolio_list = get_sub_field('portfolio_list');
+$data['title'] = get_sub_field('title') ? get_sub_field('title') : '';
+$data['description'] = get_sub_field('description') ? get_sub_field('description') : '';
+$data['menu_title'] = get_sub_field('menu_title') ? get_sub_field('menu_title') : '';
+$data['count'] = get_sub_field('count') ? get_sub_field('count') : '-1';
 ?>
 <!-- PORTFOLIO -->
 <section class="portfolio">
 	<div class="container">
 		<div class="row">
 			<div class="section-title">
-				<?php echo $portfolio_list['title'] ? '<span>'.$portfolio_list['title'].'</span>' : ''; ?>
-				<?php echo $portfolio_list['title'] ? '<p>'.$portfolio_list['description'].'</p>' : ''; ?>
+
+				<?php if ( strlen( $data['title'] ) ): ?>
+					<span><?php echo $data['title']; ?></span>
+				<?php endif ?>
+
+				<?php if ( strlen( $data['description'] ) ): ?>
+					<p><?php echo $data['description']; ?></p>
+				<?php endif ?>
+
 			</div>
 		</div>
 		<!-- categories  -->
 		<div class="col-md-3">
 			<div class="row categories-grid wow fadeInLeft">
-				<span class="montserrat-text uppercase"><?php echo $portfolio_list['menu_title']; ?></span>
+
+				<?php if ( strlen( $data['menu_title'] ) ): ?>
+					<span class="montserrat-text uppercase"><?php echo $data['menu_title']; ?></span>
+				<?php endif ?>
+
 				<nav class="categories">
 					<ul class="portfolio_filter">
 						<li><a href="" class="active" data-filter="*">all</a></li>
@@ -48,11 +61,10 @@ if( empty($portfolio_list) )
 			<?php
 				$args = [
 					'post_type' => 'portfolio',
-					'posts_per_page'=> $portfolio_list['count'],
+					'posts_per_page'=> $data['count'],
 				];
 				$query = new WP_Query($args);
 				if( $query->have_posts() ){
-					//$delay_wow = 1;
 					while( $query->have_posts() ){ $query->the_post();
 					
 						get_template_part( 'template-parts/content', 'portfolio-single-work' );

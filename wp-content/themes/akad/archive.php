@@ -8,7 +8,6 @@
  */
 
 get_header(); 
-get_template_part( 'template-parts/content', 'site-hero2' );
 ?>
 <section>
 	<div class="container">

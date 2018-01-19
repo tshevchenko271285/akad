@@ -9,26 +9,32 @@
 /**
  * Prepare data Services 
  */
-$services = get_field('services')[0];
-$image = wp_get_attachment_image( $services['image'], array(470, 500) );
+$title = get_sub_field('title') ? get_sub_field('title') : '';
+$description = get_sub_field('description') ? get_sub_field('description') : '';
+$services = get_sub_field('service') ? get_sub_field('service') : false;
+$image = get_sub_field('image') ? wp_get_attachment_image( get_sub_field('image'), array(470, 500) ) : false;
 ?>
 <!-- WHY CHOOSE US -->
 <section class="services">
 	<div class="container">
 		<div class="row">
 			<div class="section-title">
-				<span><?php echo $services['title']; ?></span>
-				<p><?php echo $services['description']; ?></p>
+				<?php if ( $title ): ?>
+					<span><?php echo $title; ?></span>
+				<?php endif ?>
+				<?php if ( $description ): ?>
+					<p><?php echo $description; ?></p>
+				<?php endif ?>				
 			</div>
 		</div>
 
 		<div class="col-md-7 col-sm-12 services-left wow fadeInUp">
 			<div class="row" style="margin-bottom:50px">
 			<?php 
-				if (is_array($services['service'])):
+				if (is_array($services)):
 				//shuffle($services['service']);
 				$repeater = 0;
-				foreach( $services['service'] as $service ) { 
+				foreach( $services as $service ) { 
 					$repeater++;
 					if( $repeater > 4 ) break;
 			?>
@@ -53,7 +59,7 @@ $image = wp_get_attachment_image( $services['image'], array(470, 500) );
 		<div class="col-md-5 col-sm-12 services-right wow fadeInUp" data-wow-delay=".1s">
 			<div class="row">
 				<?php 
-				if( strlen($image) > 0 ) {
+				if( strlen($image) ) {
 					echo $image; 
 				}
 				?>

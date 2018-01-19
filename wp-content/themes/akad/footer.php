@@ -15,6 +15,9 @@ $footer['youtube_url'] = get_field('footer_youtube_url', 'options');
 $footer['linkedin_url'] = get_field('footer_linkedin_url', 'options');
 $footer['pinterest_url'] = get_field('footer_pinterest_url', 'options');
 $footer['instagram_url'] = get_field('footer_instagram_url', 'options');
+
+get_template_part( 'template-parts/content', 'newsletter' );
+
 ?>
 	<!-- FOOTER -->
 	<footer class="main-footer wow fadeInUp">
@@ -64,6 +67,9 @@ $footer['instagram_url'] = get_field('footer_instagram_url', 'options');
 		</div>
 	</footer>
 
+<script>
+	var template_directory = "<?php echo get_template_directory_uri() ?>";
+</script>
 <?php wp_footer(); ?>
 
 </body>
